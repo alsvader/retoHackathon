@@ -88,8 +88,8 @@
 	}])
 
 
-	.controller('Userstroller', ['$scope', 'UserService', Userstroller]);
-	function Userstroller($scope, UserService) {
+	.controller('Userstroller', ['$rootScope', '$scope', 'UserService', Userstroller]);
+	function Userstroller($rootScope, $scope, UserService) {
 		$scope.name = '';
 		$scope.email = '';
 		$scope.pass = '';
@@ -143,7 +143,7 @@
 		angular.element(document).ready(function() {
 			UserService.getCurrentUser().then(function(res) {
 				res.email = firebase.auth().currentUser.email;
-				$scope.userData = res;
+				$rootScope.userData = res;
 			});
 		});
 	}

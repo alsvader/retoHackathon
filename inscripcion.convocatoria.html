@@ -41,12 +41,12 @@
                 </div>
                 <!--<a class="block m-t-sm" ui-toggle-class="hide, show" target="#nav, #account">-->
                 <a href="profile.html" class="block m-t-sm">
-                  <span class="block font-bold">John Smith</span>
+                  <span class="block font-bold">{{userData.userName}}</span>
                   <span class="pull-right auto">
                     <i class="fa inline fa-caret-down"></i>
                     <i class="fa none fa-caret-up"></i>
                   </span>
-                  john.smith@gmail.com
+                  {{userData.email}}
                 </a>
               </div>
               <div id="nav">
@@ -181,11 +181,12 @@
               <i class="mdi-navigation-more-vert i-24"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-scale pull-right pull-up text-color">
-              <li><a href>Single-column view</a></li>
+              <!-- <li><a href>Single-column view</a></li>
               <li><a href>Sort by date</a></li>
               <li><a href>Sort by name</a></li>
               <li class="divider"></li>
-              <li><a href>Help &amp; feedback</a></li>
+              <li><a href>Help &amp; feedback</a></li> -->
+              <li ng-click='logout()'><a href='#'>Logout</a></li>
             </ul>
           </li>
         </ul>
