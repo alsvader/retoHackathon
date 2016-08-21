@@ -11,7 +11,8 @@
 	.service('UserService', ['$q', function($q){
 		return {
 			signIn: signIn,
-			signUp: signUp
+			signUp: signUp,
+			logout: logout
 		};
 
 		function signIn(email, pass) {
@@ -46,6 +47,18 @@
 			});
 			return userDefer.promise;
 		}
+
+		function logout() {
+			var userDefer = $q.defer();
+			firebase.auth().signOut()
+			.then(function(response) {
+				userDefer.resolve(response);
+			}, function(error) {
+				userDefer.reject(error);
+			});
+
+			return userDefer.promise;
+		}
 	}])
 
 
@@ -67,8 +80,22 @@
 				$scope.loginError = true;
 			})
 			.then(function(response) {
+				var user = firebase.auth().currentUser;
+				localStorage.setItem('userId', user.uid);
+				window.location.href = 'http://localhost:8080/index.html';
 				$scope.loginError = false;
-				console.log('res', response);
+			});
+		};
+
+		$scope.logout = function() {
+			UserService.logout()
+			.then(function(response) {
+				console.log(response);
+				localStorage.removeItem('userId');
+				window.location.href = 'http://localhost:8080/signin.html';
+			})
+			.catch(function(error) {
+				console.log(error);
 			});
 		};
 

@@ -182,6 +182,7 @@
             <li><a href>Sort by name</a></li>
             <li class="divider"></li>
             <li><a href>Help &amp; feedback</a></li>
+            <li ng-app='loginApp' ng-controller='Userstroller' ng-click='logout()'><a href='#'>Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -271,6 +272,16 @@
     </div>
   </div>
 </div>
+<!-- Firebase js file -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="app/config.js"></script>
+
+<!-- Aplication scripts -->
+<!-- <script src='vue.min.js'></script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
+<script src='app/users/login.js'></script>
+
+
 <script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/libs/jquery/waves/dist/waves.js"></script>
