@@ -20,8 +20,8 @@
   <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
   <script src="js/main.js"></script>
 </head>
-<body>
-<div class="app">
+<body ng-app="convocatoriesLists">
+<div class="app" ng-controller="convocatoriesListController">
   <!--  folded  -->
   <aside id="aside" class="app-aside modal fade" role="menu">
     <div class="left">
@@ -212,13 +212,13 @@
         <div class="box-cell">
           <div class="box-inner padding">
             <div class="row">
-              <div class="col-sm-4">
+              <div  class="col-sm-4">
                 <div class="panel panel-card">
                   <div class="item">
                     <img src="assets/images/c5.jpg" class="w-full r-t" alt="Washed Out">
                   </div>
                   <a href="view.convocatoria.html" md-ink-ripple="" class="md-btn md-fab md-raised pink m-r md-fab-offset pull-right waves-effect">
-                    <i class="fa fa-eye i-24"></i>
+                    <i class="fa fa-eye i-24"></i>                  
                   </a>
                   <div class="p">
                     <h3>Paracosm</h3>
@@ -229,6 +229,7 @@
                   </div>
                 </div>
               </div>
+
             </div>
             <!--###########################################################################-->
             <a href="new.convocatorias.html" class="md-btn md-fab md-fab-bottom-right pos-fix teal">
@@ -306,6 +307,15 @@
     </div>
   </div>-->
 </div>
+<!-- Firebase js file -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="app/config.js"></script>
+
+<!-- Aplication scripts -->
+<!-- <script src='vue.min.js'></script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
+<script src='app/convocatories/convocatoriesList.js'></script>
+
 <script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/libs/jquery/waves/dist/waves.js"></script>
