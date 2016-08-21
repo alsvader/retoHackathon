@@ -18,8 +18,8 @@
     }
   </style>
 </head>
-<body>
-<div class="app">
+<body ng-app="addProyect">
+<div class="app" ng-controller="ProyectController">
   <!--  folded  -->
   <aside id="aside" class="app-aside modal fade" role="menu">
     <div class="left">
@@ -200,11 +200,11 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm-12 form-group form-group-lg">
-                        <input class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="Nombre del proyecto">
+                        <input ng-model="nombreProyecto" class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="Nombre del proyecto">
                       </div>
                       <div class="col-sm-12 form-group form-group-lg">
                         <strong>Descripción</strong>
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea ng-model=descripProyecto class="form-control" rows="5"></textarea>
                       </div>
                       <div class="col-md-6">
                         <b>Subir Video</b>
@@ -217,17 +217,17 @@
                       </div>
                       <div class="col-sm-12 form-group form-group-md">
                         <strong>Equipo</strong>
-                        <input class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="E-mails (i.e: correo1@gmailcom, correo2@hotmail.com)">
+                        <input ng-model="equipoPersonasProyecto" class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="E-mails (i.e: correo1@gmailcom, correo2@hotmail.com)">
                       </div>
                       <div class="col-sm-12 form-group form-group-lg">
                         <br>
-                        <input type="text" class="form-control rounded" placeholder="Tags (i.e. Cars, Vehicles, Motors)">
+                        <input ng-model="tagsProyecto" type="text" class="form-control rounded" placeholder="Tags (i.e. Cars, Vehicles, Motors)">
                       </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 m-t-lg">
                           <div class="pull-right">
-                            <button type="submit" class="btn btn-success waves-effect">Enviar</button>
+                            <button ng-click="addProyect()" type="submit" class="btn btn-success waves-effect">Enviar</button>
                           </div>
                         </div>
                     </div>
@@ -241,6 +241,15 @@
     </div>
   </div>
 </div>
+<!-- Firebase js file -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="app/config.js"></script>
+
+<!-- Aplication scripts -->
+<!-- <script src='vue.min.js'></script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
+<script src='app/calls/add-proyect.js'></script>
+
 <script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/libs/jquery/waves/dist/waves.js"></script>
