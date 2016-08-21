@@ -16,10 +16,8 @@
 
 </head>
 <body>
-<div class="app">
-  
-
-  <div class="center-block w-xxl w-auto-xs p-v-md">
+<div class="app" ng-app="loginApp">
+  <div class="center-block w-xxl w-auto-xs p-v-md" ng-controller="Userstroller">
     <div class="navbar">
       <div class="navbar-brand m-t-lg text-center">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" style="
@@ -35,19 +33,30 @@
 
     <div class="p-lg panel md-whiteframe-z1 text-color m">
       <div class="m-b text-sm">
-        Sign up to your Materil Account
+        <h4 class='text-center'>Sign up to your Materil Account</h4>
+        <hr />
       </div>
-      <form name="form">
+      <div ng-show='regisSuccess' class='text-center'>
+        <div class="alert ng-isolate-scope alert-success alert-dismissable">
+          <span>Gracias por registrarte: <b>{{name}}</b></span>
+        </div>
+      </div>
+      <div ng-show='regisError' class='text-center'>
+        <div class="alert ng-isolate-scope alert-danger alert-dismissable">
+          <span>El usuario ya existe.</span>
+        </div>
+      </div>
+      <form name="form" ng-submit='signUp()'>
         <div class="md-form-group">
-          <input type="text" class="md-input" ng-model="user.name" required>
+          <input type="text" class="md-input" ng-model="name" required>
           <label>Name</label>
         </div>
         <div class="md-form-group">
-          <input type="email" class="md-input" ng-model="user.email" required>
+          <input type="email" class="md-input" ng-model="email" required>
           <label>Email</label>
         </div>
         <div class="md-form-group">
-          <input type="password" class="md-input" ng-model="user.password" required>
+          <input type="password" class="md-input" ng-model="pass" required>
           <label>Password</label>
         </div>
         <div class="m-b-md">
@@ -63,10 +72,16 @@
       <div>Already have an account? <a href="signin.html"  class="md-btn">Sign in</a></div>
     </div>
   </div>
-
-
-
 </div>
+
+<!-- Firebase js file -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="app/config.js"></script>
+
+<!-- Aplication scripts -->
+<!-- <script src='vue.min.js'></script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
+<script src='app/users/login.js'></script>
 
 <script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>

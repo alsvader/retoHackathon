@@ -10,42 +10,80 @@
 
 	.service('UserService', ['$q', function($q){
 		return {
-			signin: signin
+			signIn: signIn,
+			signUp: signUp
 		};
 
-		function signin(email, pass) {
-			var businessDefer = $q.defer();
+		function signIn(email, pass) {
+			var userDefer = $q.defer();
 
 			firebase.auth().signInWithEmailAndPassword(email, pass)
 			.catch(function(error) {
-				businessDefer.reject(error);
+				userDefer.reject(error);
 			})
 			.then(function(response) {
-				businessDefer.resolve(response);
+				userDefer.resolve(response);
 			});
-			return businessDefer.promise;
+			return userDefer.promise;
+		}
+
+		function signUp(email, pass, name) {
+			var userDefer = $q.defer();
+
+			firebase.auth().createUserWithEmailAndPassword(email, pass)
+			.catch(function(error) {
+			  console.log(error);
+			  userDefer.reject(error);
+			})
+			.then(function(response) {
+				console.log(response);
+				userDefer.resolve(response);
+				var keyID = response.uid;
+				firebase.database().ref('users').push({
+					userId: keyID,
+					userName: name
+				 });
+			});
+			return userDefer.promise;
 		}
 	}])
 
 
-	.controller('LoginController', ['$scope', 'UserService', LoginController]);
-	function LoginController($scope, UserService) {
+	.controller('Userstroller', ['$scope', 'UserService', Userstroller]);
+	function Userstroller($scope, UserService) {
+		$scope.name = '';
 		$scope.email = '';
 		$scope.pass = '';
 		$scope.test = null;
+		$scope.loginError = false;
+		$scope.regisSuccess = false;
+		$scope.regisError = false;
 
-		$scope.name = 'josesds';
-
-		$scope.signin = function() {
+		$scope.signIn = function() {
 			console.log('submit', $scope.email, $scope.pass);
-			UserService.signin($scope.email, $scope.pass)
+			UserService.signIn($scope.email, $scope.pass)
 			.catch(function(error) {
 				console.log('errpr', error);
-				$scope.test = 'fallo';
+				$scope.loginError = true;
+			})
+			.then(function(response) {
+				$scope.loginError = false;
+				console.log('res', response);
+			});
+		};
+
+		$scope.signUp = function() {
+			console.log('submit', $scope.email, $scope.pass, $scope.name);
+			UserService.signUp($scope.email, $scope.pass, $scope.name)
+			.catch(function(error) {
+				console.log('errpr', error);
+				$scope.regisSuccess = false;
+				$scope.regisError = true;
 			})
 			.then(function(response) {
 				console.log('res', response);
-				$scope.test = response;
+				$scope.regisError = false;
+				$scope.regisSuccess = true;
 			});
 		};
 	}
