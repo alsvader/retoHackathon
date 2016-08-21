@@ -167,7 +167,7 @@
         <a md-ink-ripple  data-toggle="modal" data-target="#aside" class="navbar-item pull-left visible-xs visible-sm"><i class="mdi-navigation-menu i-24"></i></a>
         <!-- / -->
         <!-- Page title - Bind to $state's title -->
-        <div class="navbar-item pull-left h4">Convocatorias</div>
+        <div class="navbar-item pull-left h4">Agregar Convocatoria</div>
         <!-- / -->
         <!-- Common tools -->
         <ul class="nav nav-sm navbar-tool pull-right">
@@ -210,28 +210,98 @@
         <div class="box-cell">
           <div class="box-inner padding">
             <div class="row">
-              <div class="col-sm-4">
-                <div class="panel panel-card">
-                  <div class="item">
-                    <img src="assets/images/c5.jpg" class="w-full r-t" alt="Washed Out">
+              <div class="col-sm-10 col-sm-offset-1">
+                <div class="row">
+                  <div class="col-sm-12 form-group form-group-lg">
+                    <input class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="Nombre de la convocatoria">
                   </div>
-                  <a md-ink-ripple="" class="md-btn md-fab md-raised pink m-r md-fab-offset pull-right waves-effect">
-                    <i class="fa fa-eye i-24"></i>
-                  </a>
-                  <div class="p">
-                    <h3>Paracosm</h3>
-                    <p>
-                      The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                      two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                    </p>
+                    <div class="col-sm-12 form-group form-group-lg">
+                      <strong>Descripción</strong>
+                      <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <b>Subir Convocatoria</b>
+                          <input type="file">
+                          <br>
+                        </div>
+                        <div class="col-sm-12">
+                          <b>Subir Banner</b>
+                          <input type="file">
+                        </div>
+                        <div class="col-sm-11 form-group form-group-lg">
+                          <br>
+                          <input type="text" class="form-control rounded" placeholder="Tags (i.e. Cars, Vehicles, Motors)">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <b>Criterios</b>
+                            <div class="input-group">
+                              <input type="text" class="form-control">
+                              <span class="input-group-btn">
+                                <button class="btn btn-default waves-effect" type="button">
+                                  <i class="fa fa-plus"></i> Agregar 
+                                </button>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input class="form-control" type="text" name="" value="Criterio Uno">
+                              <span class="input-group-btn">
+                                <button class="btn btn-default waves-effect" type="button">
+                                  <i class="fa fa-trash"></i>
+                                </button>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="col-sm-8">
+                            <div class="input-group">
+                              <input class="form-control" type="text" name="" value="Criterio Dos">
+                              <span class="input-group-btn">
+                                <button class="btn btn-default waves-effect" type="button">
+                                  <i class="fa fa-trash"></i>
+                                </button>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <b>Registro Inicio</b><br>
+                      <input type="date" name="">
+                    </div>
+                    <div class="col-sm-3">
+                      <b>Registro Fin</b><br>
+                      <input type="date" name="">
+                    </div>
+                    <div class="col-sm-3">
+                      <b>Evaluación Inicio</b><br>
+                      <input type="date" name="">
+                    </div
+                    <div class="col-sm-3">
+                      <b>Evaluación Fin</b><br>
+                      <input type="date" name="">
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-10 col-sm-offset-1 m-t-lg">
+                        <div class="pull-right">
+                        <button type="submit" class="btn btn-primary waves-effect">Guardar</button>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!--###########################################################################-->
-            <a href="new.convocatorias.html" class="md-btn md-fab md-fab-bottom-right pos-fix teal">
-              <i class="mdi-content-add i-24"></i>
-            </a>
           </div>
         </div>
       </div>
