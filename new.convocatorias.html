@@ -18,8 +18,8 @@
     }
   </style>
 </head>
-<body>
-<div class="app">
+<body ng-app="addCalls">
+<div class="app" ng-controller="CallController">
   <!--  folded  -->
   <aside id="aside" class="app-aside modal fade" role="menu">
     <div class="left">
@@ -213,26 +213,26 @@
               <div class="col-sm-10 col-sm-offset-1">
                 <div class="row">
                   <div class="col-sm-12 form-group form-group-lg">
-                    <input class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="Nombre de la convocatoria">
+                    <input ng-model="nombre" class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="Nombre de la convocatoria">
                   </div>
                     <div class="col-sm-12 form-group form-group-lg">
                       <strong>Descripción</strong>
-                      <textarea class="form-control" rows="5"></textarea>
+                      <textarea ng-model="descrip" class="form-control" rows="5"></textarea>
                     </div>
                     <div class="col-md-6">
                       <div class="row">
                         <div class="col-sm-12">
                           <b>Subir Convocatoria</b>
-                          <input type="file">
+                          <input ng-model="archivo" type="file">
                           <br>
                         </div>
                         <div class="col-sm-12">
                           <b>Subir Banner</b>
-                          <input type="file">
+                          <input ng-model="banner" type="file">
                         </div>
                         <div class="col-sm-11 form-group form-group-lg">
                           <br>
-                          <input type="text" class="form-control rounded" placeholder="Tags (i.e. Cars, Vehicles, Motors)">
+                          <input ng-model="tags" type="text" class="form-control rounded" placeholder="Tags (i.e. Cars, Vehicles, Motors)">
                         </div>
                       </div>
                     </div>
@@ -253,7 +253,7 @@
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="input-group">
-                              <input class="form-control" type="text" name="" value="Criterio Uno">
+                              <input ng-model="criterio1" class="form-control" type="text" name="" value="Criterio Uno">
                               <span class="input-group-btn">
                                 <button class="btn btn-default waves-effect" type="button">
                                   <i class="fa fa-trash"></i>
@@ -263,7 +263,7 @@
                           </div>
                           <div class="col-sm-8">
                             <div class="input-group">
-                              <input class="form-control" type="text" name="" value="Criterio Dos">
+                              <input ng-model="criterio2" class="form-control" type="text" name="" value="Criterio Dos">
                               <span class="input-group-btn">
                                 <button class="btn btn-default waves-effect" type="button">
                                   <i class="fa fa-trash"></i>
@@ -277,25 +277,25 @@
                   <div class="row">
                     <div class="col-sm-3">
                       <b>Registro Inicio</b><br>
-                      <input type="date" name="">
+                      <input ng-model="regFechaInicio" type="text" name="">
                     </div>
                     <div class="col-sm-3">
                       <b>Registro Fin</b><br>
-                      <input type="date" name="">
+                      <input ng-model="regFechaFin" type="text" name="">
                     </div>
                     <div class="col-sm-3">
                       <b>Evaluación Inicio</b><br>
-                      <input type="date" name="">
+                      <input ng-model="evaFechaInicio" type="text" name="">
                     </div
                     <div class="col-sm-3">
                       <b>Evaluación Fin</b><br>
-                      <input type="date" name="">
+                      <input ng-model="evaFechaFin" type="text" name="">
                     </div>
                   </div>
                   <div class="row">
                       <div class="col-sm-10 col-sm-offset-1 m-t-lg">
                         <div class="pull-right">
-                          <button type="submit" class="btn btn-primary waves-effect">Guardar</button>
+                        <button ng-click="addCall()" class="btn btn-primary waves-effect">Guardar</button>
                         </div>
                       </div>
                   </div>
@@ -374,6 +374,15 @@
     </div>
   </div>-->
 </div>
+<!-- Firebase js file -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="app/config.js"></script>
+
+<!-- Aplication scripts -->
+<!-- <script src='vue.min.js'></script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
+<script src='app/calls/add-calls.js'></script>
+
 <script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/libs/jquery/waves/dist/waves.js"></script>
