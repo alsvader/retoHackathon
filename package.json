@@ -1,0 +1,19 @@
+{
+  "name": "reto-hackathon",
+  "version": "1.0.0",
+  "description": "Proyecto del reto hackathon, Mérida Agosto 2016",
+  "main": "vue.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alsvader/retoHackathon.git"
+  },
+  "author": "retoHackathon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alsvader/retoHackathon/issues"
+  },
+  "homepage": "https://github.com/alsvader/retoHackathon#readme"
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8' />
+	<title>retoHackathon</title>
+</head>
+<body>
+	<h1>login</h1>
+	<div id='login'>
+		{{ message }}
+		<pre>{{$data | json}}</pre>
+	</div>
+	<!-- <form id='login-form'> -->
+		<label for=''>User:</label>
+		<input id='emailId' type='email' />
+		<label for=''>Password:</label>
+		<input id='passId' type='password' />
+
+		<button onclick="login()">submit</button>
+		<button onclick='regitrerUser()'>regitrer</button>
+	<!-- </form> -->
+	
+<!-- Firebase js file -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="app/config.js"></script>
+<!-- <script src='vue.min.js'></script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+<script src='app/users/registrer.js'></script>
+<script src='app/users/login.js'></script>
+</body>
+</html>

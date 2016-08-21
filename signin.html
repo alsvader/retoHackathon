@@ -15,10 +15,8 @@
   <link rel="stylesheet" href="assets/styles/app.css" type="text/css" />
 
 </head>
-<body>
-<div class="app">
-  
-
+<body ng-app="loginApp">
+<div class="app" ng-controller="LoginController">
   <div class="center-block w-xxl w-auto-xs p-v-md">
     <div class="navbar">
       <div class="navbar-brand m-t-lg text-center">
@@ -36,17 +34,18 @@
     <div class="p-lg panel md-whiteframe-z1 text-color m">
       <div class="m-b text-sm">
         Sign in with your Materil Account
+        {{ name }}
       </div>
-      <form name="form">
+      <form name="form" ng-submit='signin()'>
         <div class="md-form-group float-label">
-          <input type="email" class="md-input" ng-model="user.email" required>
+          <input type="email" class="md-input" ng-model='email' required>
           <label>Email</label>
         </div>
         <div class="md-form-group float-label">
-          <input type="password" class="md-input" ng-model="user.password" required>
+          <input type="password" class="md-input" ng-model='pass' required>
           <label>Password</label>
-        </div>      
-        <div class="m-b-md">        
+        </div>
+        <div class="m-b-md">
           <label class="md-check">
             <input type="checkbox"><i class="indigo"></i> Keep me signed in
           </label>
@@ -60,11 +59,18 @@
       <div>Do not have an account? <a href="signup.html" class="md-btn">Create an account</a></div>
     </div>
   </div>
-
-
-
 </div>
 
+<!-- Firebase js file -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="app/config.js"></script>
+
+<!-- Aplication scripts -->
+<!-- <script src='vue.min.js'></script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
+<script src='app/users/login.js'></script>
+
+<!-- Design scripts -->
 <script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/libs/jquery/waves/dist/waves.js"></script>
