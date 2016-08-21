@@ -18,8 +18,8 @@
     }
   </style>
 </head>
-<body ng-app="addProyect">
-<div class="app" ng-controller="ProyectController">
+<body>
+<div class="app">
   <!--  folded  -->
   <aside id="aside" class="app-aside modal fade" role="menu">
     <div class="left">
@@ -167,7 +167,7 @@
         <a md-ink-ripple  data-toggle="modal" data-target="#aside" class="navbar-item pull-left visible-xs visible-sm"><i class="mdi-navigation-menu i-24"></i></a>
         <!-- / -->
         <!-- Page title - Bind to $state's title -->
-        <div class="navbar-item pull-left h4">Inscripción</div>
+        <div class="navbar-item pull-left h4">Proyectos en {{nombre de la convocatoria}}</div>
         <!-- / -->
         <!-- Common tools -->
         <ul class="nav nav-sm navbar-tool pull-right">
@@ -190,66 +190,98 @@
           </li>
         </ul>
         <div class="pull-right" ui-view="navbar@"></div>
+        <!-- / -->
+        <!--
+        <div id="search" class="pos-abt w-full h-full blue hide">
+          <div class="box">
+            <div class="box-col w-56 text-center">
+              <a md-ink-ripple class="navbar-item inline"  ui-toggle-class="show" target="#search"><i class="mdi-navigation-arrow-back i-24"></i></a>
+            </div>
+            <div class="box-col v-m">
+              <input class="form-control input-lg no-bg no-border" placeholder="Search" ng-model="app.search.content">
+            </div>
+            <div class="box-col w-56 text-center">
+              <a md-ink-ripple class="navbar-item inline"><i class="mdi-av-mic i-24"></i></a>
+            </div>
+          </div>
+        </div>-->
       </div>
       <div class="box-row">
         <div class="box-cell">
           <div class="box-inner padding">
-            <div class="row">
-              <div class="col-sm-10 col-sm-offset-1">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-sm-12 form-group form-group-lg">
-                        <input ng-model="nombreProyecto" class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="Nombre del proyecto">
+            <!--###########################################################################-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- / content -->
+  <!--<div class="modal fade" id="chat" data-backdrop="false">
+    <div class="right w-xxl bg-white md-whiteframe-z2">
+        <div class="box">
+          <div class="p p-h-md">
+            <a data-dismiss="modal" class="pull-right text-muted-lt text-2x m-t-n inline p-sm">&times;</a>
+            <strong>Chat</strong>
+          </div>
+          <div class="box-row bg-light lt">
+            <div class="box-cell">
+              <div class="box-inner">
+                <div class="p-md">
+                  <div class="m-b">
+                    <a href class="pull-left w-40 m-r-sm"><img src="assets/images/a2.jpg" alt="..." class="w-full img-circle"></a>
+                    <div class="clear">
+                      <div class="p p-v-sm bg-warning inline r">
+                        Hi John, What's up...
                       </div>
-                      <div class="col-sm-12 form-group form-group-lg">
-                        <strong>Descripción</strong>
-                        <textarea ng-model=descripProyecto class="form-control" rows="5"></textarea>
-                      </div>
-                      <div class="col-md-6">
-                        <b>Subir Video</b>
-                        <input type="file">
-                        <br>
-                      </div>
-                      <div class="col-sm-6">
-                        <b>Subir Documento</b>
-                        <input type="file">
-                      </div>
-                      <div class="col-sm-12 form-group form-group-md">
-                        <strong>Equipo</strong>
-                        <input ng-model="equipoPersonasProyecto" class="form-control has-value" type="text" id="formGroupInputLarge" placeholder="E-mails (i.e: correo1@gmailcom, correo2@hotmail.com)">
-                      </div>
-                      <div class="col-sm-12 form-group form-group-lg">
-                        <br>
-                        <input ng-model="tagsProyecto" type="text" class="form-control rounded" placeholder="Tags (i.e. Cars, Vehicles, Motors)">
-                      </div>
+                      <div class="text-muted-lt text-xs m-t-xs"><i class="fa fa-ok text-success"></i> 2 minutes ago</div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12 m-t-lg">
-                          <div class="pull-right">
-                            <button ng-click="addProyect()" type="submit" class="btn btn-success waves-effect">Enviar</button>
-                          </div>
-                        </div>
+                  </div>
+                  <div class="m-b">
+                    <a href class="pull-right w-40 m-l-sm"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
+                    <div class="clear text-right">
+                      <div class="p p-v-sm bg-info inline text-left r">
+                        Lorem ipsum dolor soe rooke..
+                      </div>
+                      <div class="text-muted-lt text-xs m-t-xs">1 minutes ago</div>
+                    </div>
+                  </div>
+                  <div class="m-b">
+                    <a href class="pull-left w-40 m-r-sm"><img src="assets/images/a2.jpg" alt="..." class="w-full img-circle"></a>
+                    <div class="clear">
+                      <div class="p p-v-sm bg-warning inline r">
+                        Good!
+                      </div>
+                      <div class="text-muted-lt text-xs m-t-xs"><i class="fa fa-ok text-success"></i> 5 seconds ago</div>
+                    </div>
+                  </div>
+                  <div class="m-b">
+                    <a href class="pull-right w-40 m-l-sm"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
+                    <div class="clear text-right">
+                      <div class="p p-v-sm bg-info inline text-left r">
+                        Dlor soe isep..
+                      </div>
+                      <div class="text-muted-lt text-xs m-t-xs">Just now</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="p-h-md p-v">
+            <a class="pull-left w-32 m-r"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
+            <form>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Say something">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">SEND</button>
+                </span>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
     </div>
-  </div>
+  </div>-->
 </div>
-<!-- Firebase js file -->
-<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-<script src="app/config.js"></script>
-
-<!-- Aplication scripts -->
-<!-- <script src='vue.min.js'></script> -->
-<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
-<script src='app/calls/add-proyect.js'></script>
-
 <script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/libs/jquery/waves/dist/waves.js"></script>
