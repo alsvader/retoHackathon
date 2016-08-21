@@ -1,7 +1,7 @@
 var formulario = document.getElementById('formQuestion');
 var btn = document.getElementById('addQuestion');
 var btnSubmit = document.getElementById('btnSubmit');
-var cadenaPreguntas = ["pregunta 1", "pregunta 2", "pregunta 3"];
+var cadenaPreguntas = [" ¿En cuánto tiempo estimas alcanzar el punto de equilibrio?", " Para comercializar, ¿cuál será el canal de ventas principal?", "¿Existen sustitutos (competidores indirectos) a tu producto o servicio?", " ¿En cuánto tiempo estarías vendiendo con una inversión de un millón de dólares?"];
 var preguntas = [];
 
 generateQuestions();
