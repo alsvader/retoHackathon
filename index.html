@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="assets/styles/app.css" type="text/css" />
 </head>
 <body>
-<div class="app">
+<div class="app" ng-app='loginApp'  ng-controller='Userstroller'>
   <!--  folded  -->
   <aside id="aside" class="app-aside modal fade" role="menu">
     <div class="left">
@@ -36,12 +36,12 @@
                 </div>
                 <!--<a class="block m-t-sm" ui-toggle-class="hide, show" target="#nav, #account">-->
                 <a href="profile.html" class="block m-t-sm">
-                  <span class="block font-bold">John Smith</span>
+                  <span class="block font-bold">{{userData.userName}}</span>
                   <span class="pull-right auto">
                     <i class="fa inline fa-caret-down"></i>
                     <i class="fa none fa-caret-up"></i>
                   </span>
-                  john.smith@gmail.com
+                  {{userData.email}}
                 </a>
               </div>
               <div id="nav">
@@ -182,7 +182,7 @@
             <li><a href>Sort by name</a></li>
             <li class="divider"></li>
             <li><a href>Help &amp; feedback</a></li>
-            <li ng-app='loginApp' ng-controller='Userstroller' ng-click='logout()'><a href='#'>Logout</a></li>
+            <li ng-click='logout()'><a href='#'>Logout</a></li>
           </ul>
         </li>
       </ul>

@@ -46,7 +46,7 @@
 			  userDefer.reject(error);
 			})
 			.then(function(response) {
-				console.log(response);
+				//console.log(response);
 				userDefer.resolve(response);
 				var keyID = response.uid;
 				firebase.database().ref('users').push({
@@ -54,6 +54,8 @@
 					userName: 'name2'
 				 });
 			});
+
+			console.log('key: ', firebase.database().ref().child('users').push().key);
 			return userDefer.promise;
 		}
 	}])
@@ -75,7 +77,7 @@
 				$scope.test = 'fallo';
 			})
 			.then(function(response) {
-				console.log('res', response);
+				//console.log('res', response);
 				$scope.test = response;
 			});
 		};
