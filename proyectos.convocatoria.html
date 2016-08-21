@@ -17,8 +17,6 @@
       margin-top: 0px;
     }
   </style>
-  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-  <script src="js/main.js"></script>
 </head>
 <body>
 <div class="app">
@@ -169,7 +167,7 @@
         <a md-ink-ripple  data-toggle="modal" data-target="#aside" class="navbar-item pull-left visible-xs visible-sm"><i class="mdi-navigation-menu i-24"></i></a>
         <!-- / -->
         <!-- Page title - Bind to $state's title -->
-        <div class="navbar-item pull-left h4">Convocatorias</div>
+        <div class="navbar-item pull-left h4">Proyectos en {{nombre de la convocatoria}}</div>
         <!-- / -->
         <!-- Common tools -->
         <ul class="nav nav-sm navbar-tool pull-right">
@@ -213,27 +211,19 @@
           <div class="box-inner padding">
             <div class="row">
               <div class="col-sm-4">
-                <div class="panel panel-card">
-                  <div class="item">
-                    <img src="assets/images/c5.jpg" class="w-full r-t" alt="Washed Out">
-                  </div>
-                  <a href="view.convocatoria.html" md-ink-ripple="" class="md-btn md-fab md-raised pink m-r md-fab-offset pull-right waves-effect">
-                    <i class="fa fa-eye i-24"></i>
-                  </a>
-                  <div class="p">
-                    <h3>Paracosm</h3>
-                    <p>
-                      The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-                      two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                    </p>
+                <div class="card">
+                  <div class="card-body">
+                    <h3 class="no-margin m-b">{{Nombre del proyecto}}</h3>
+                    <small>
+                      {{Words in Ernest Greene's musical language: feel it. It's a simple request, as well...}}
+                    </small>
+                    <br><br>
+                    <a href="view.proyecto.html" md-ink-ripple="" class="btn btn-fw btn-info waves-effect waves-effect">Ver Más</a>
                   </div>
                 </div>
               </div>
             </div>
             <!--###########################################################################-->
-            <a href="new.convocatorias.html" class="md-btn md-fab md-fab-bottom-right pos-fix teal">
-              <i class="mdi-content-add i-24"></i>
-            </a>
           </div>
         </div>
       </div>

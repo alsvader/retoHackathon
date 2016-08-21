@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+<meta charset="utf-8">
 <head>
-  <meta charset="utf-8" />
-  <title>Inicio</title>
+<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+
+	<title>Gráfica</title>
+  
   <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="assets/libs/assets/animate.css/animate.css" type="text/css" />
@@ -12,15 +15,282 @@
   <link rel="stylesheet" href="assets/libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="assets/styles/font.css" type="text/css" />
   <link rel="stylesheet" href="assets/styles/app.css" type="text/css" />
+	<script type="text/javascript">
+      $(function () {
+/**
+ * Dark theme for Highcharts JS
+ * @author Torstein Honsi
+ */
+
+// Load the fonts
+Highcharts.createElement('link', {
+   href: 'https://fonts.googleapis.com/css?family=Unica+One',
+   rel: 'stylesheet',
+   type: 'text/css'
+}, null, document.getElementsByTagName('head')[0]);
+
+Highcharts.theme = {
+   colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+      "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+   chart: {
+      backgroundColor: {
+         linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+         stops: [
+            [0, '#2a2a2b'],
+            [1, '#3e3e40']
+         ]
+      },
+      style: {
+         fontFamily: "'Unica One', sans-serif"
+      },
+      plotBorderColor: '#606063'
+   },
+   title: {
+      style: {
+         color: '#E0E0E3',
+         textTransform: 'uppercase',
+         fontSize: '20px'
+      }
+   },
+   subtitle: {
+      style: {
+         color: '#E0E0E3',
+         textTransform: 'uppercase'
+      }
+   },
+   xAxis: {
+      gridLineColor: '#707073',
+      labels: {
+         style: {
+            color: '#E0E0E3'
+         }
+      },
+      lineColor: '#707073',
+      minorGridLineColor: '#505053',
+      tickColor: '#707073',
+      title: {
+         style: {
+            color: '#A0A0A3'
+
+         }
+      }
+   },
+   yAxis: {
+      gridLineColor: '#707073',
+      labels: {
+         style: {
+            color: '#E0E0E3'
+         }
+      },
+      lineColor: '#707073',
+      minorGridLineColor: '#505053',
+      tickColor: '#707073',
+      tickWidth: 1,
+      title: {
+         style: {
+            color: '#A0A0A3'
+         }
+      }
+   },
+   tooltip: {
+      backgroundColor: 'rgba(0, 0, 0, 0.85)',
+      style: {
+         color: '#F0F0F0'
+      }
+   },
+   plotOptions: {
+      series: {
+         dataLabels: {
+            color: '#B0B0B3'
+         },
+         marker: {
+            lineColor: '#333'
+         }
+      },
+      boxplot: {
+         fillColor: '#505053'
+      },
+      candlestick: {
+         lineColor: 'white'
+      },
+      errorbar: {
+         color: 'white'
+      }
+   },
+   legend: {
+      itemStyle: {
+         color: '#E0E0E3'
+      },
+      itemHoverStyle: {
+         color: '#FFF'
+      },
+      itemHiddenStyle: {
+         color: '#606063'
+      }
+   },
+   credits: {
+      style: {
+         color: '#666'
+      }
+   },
+   labels: {
+      style: {
+         color: '#707073'
+      }
+   },
+
+   drilldown: {
+      activeAxisLabelStyle: {
+         color: '#F0F0F3'
+      },
+      activeDataLabelStyle: {
+         color: '#F0F0F3'
+      }
+   },
+
+   navigation: {
+      buttonOptions: {
+         symbolStroke: '#DDDDDD',
+         theme: {
+            fill: '#505053'
+         }
+      }
+   },
+
+   // scroll charts
+   rangeSelector: {
+      buttonTheme: {
+         fill: '#505053',
+         stroke: '#000000',
+         style: {
+            color: '#CCC'
+         },
+         states: {
+            hover: {
+               fill: '#707073',
+               stroke: '#000000',
+               style: {
+                  color: 'white'
+               }
+            },
+            select: {
+               fill: '#000003',
+               stroke: '#000000',
+               style: {
+                  color: 'white'
+               }
+            }
+         }
+      },
+      inputBoxBorderColor: '#505053',
+      inputStyle: {
+         backgroundColor: '#333',
+         color: 'silver'
+      },
+      labelStyle: {
+         color: 'silver'
+      }
+   },
+
+   navigator: {
+      handles: {
+         backgroundColor: '#666',
+         borderColor: '#AAA'
+      },
+      outlineColor: '#CCC',
+      maskFill: 'rgba(255,255,255,0.1)',
+      series: {
+         color: '#7798BF',
+         lineColor: '#A6C7ED'
+      },
+      xAxis: {
+         gridLineColor: '#505053'
+      }
+   },
+
+   scrollbar: {
+      barBackgroundColor: '#808083',
+      barBorderColor: '#808083',
+      buttonArrowColor: '#CCC',
+      buttonBackgroundColor: '#606063',
+      buttonBorderColor: '#606063',
+      rifleColor: '#FFF',
+      trackBackgroundColor: '#404043',
+      trackBorderColor: '#404043'
+   },
+
+   // special colors for some of the
+   legendBackgroundColor: 'rgba(0, 0, 0, 0.5)',
+   background2: '#505053',
+   dataLabelsColor: '#B0B0B3',
+   textColor: '#C0C0C0',
+   contrastTextColor: '#F0F0F3',
+   maskColor: 'rgba(255,255,255,0.3)'
+};
+
+// Apply the theme
+Highcharts.setOptions(Highcharts.theme);
+    $('#container').highcharts({
+
+        chart: {
+            polar: true
+        },
+
+        title: {
+            text: 'Convocatoria Reto Emprendedor'
+        },
+
+        pane: {
+            startAngle: 0,
+            endAngle: 360
+        },
+
+        xAxis: {
+            tickInterval: 45,
+            min: 0,
+            max: 360,
+            labels: {
+                formatter: function () {
+                    return this.value + '°';
+                }
+            }
+        },
+
+        yAxis: {
+            min: 0
+        },
+
+        plotOptions: {
+            series: {
+                pointStart: 0,
+                pointInterval: 45
+            },
+            column: {
+                pointPadding: 0,
+                groupPadding: 0
+            }
+        },
+
+        series: [{
+            type: 'line',
+            name: 'Escalabilidad',
+            data: [8, 7, 6, 5, 4, 3, 2, 1],
+            pointPlacement: 'between'
+        }, {
+            type: 'line',
+            name: 'Impacto Social',
+            data: [1, 2, 3, 4, 5, 6, 7, 8]
+        }, {
+            type: 'line',
+            name: 'Sostentabilidad',
+            data: [1, 8, 2, 7, 3, 6, 4, 5]
+        }]
+    });
+});
+	</script>
 </head>
 <body>
-<<<<<<< HEAD
-<div class="app" id="contenedor">
-=======
-<div class="app" ng-app='loginApp'  ng-controller='Userstroller'>
->>>>>>> 578d5b97259e3bb9cdd21405c60f240ebb010a37
-  <!--  folded  -->
-  <aside id="aside" class="app-aside modal fade" role="menu">
+<aside id="aside" class="app-aside modal fade" role="menu">
     <div class="left">
       <div class="box bg-white">
         <div class="navbar md-whiteframe-z1 no-radius blue">
@@ -167,10 +437,7 @@
     </div>
   </aside>
   <!-- / aside -->
-  
-
-
-  <!-- content -->
+    <!-- content -->
   <div id="content" class="app-content" role="main">
     <div class="box">
           <!-- Content Navbar -->
@@ -222,72 +489,12 @@
     </div>
   </div>
   <!-- / content -->
-  <div class="modal fade" id="chat" data-backdrop="false">
-    <div class="right w-xxl bg-white md-whiteframe-z2">
-        <div class="box">
-    <div class="p p-h-md">
-      <a data-dismiss="modal" class="pull-right text-muted-lt text-2x m-t-n inline p-sm">&times;</a>
-      <strong>Chat</strong>
-    </div>
-    <div class="box-row bg-light lt">
-      <div class="box-cell">
-        <div class="box-inner">
-          <div class="p-md">
-            <div class="m-b">
-              <a href class="pull-left w-40 m-r-sm"><img src="assets/images/a2.jpg" alt="..." class="w-full img-circle"></a>
-              <div class="clear">
-                <div class="p p-v-sm bg-warning inline r">
-                  Hi John, What's up...
-                </div>
-                <div class="text-muted-lt text-xs m-t-xs"><i class="fa fa-ok text-success"></i> 2 minutes ago</div>
-              </div>
-            </div>
-            <div class="m-b">
-              <a href class="pull-right w-40 m-l-sm"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
-              <div class="clear text-right">
-                <div class="p p-v-sm bg-info inline text-left r">
-                  Lorem ipsum dolor soe rooke..
-                </div>
-                <div class="text-muted-lt text-xs m-t-xs">1 minutes ago</div>
-              </div>
-            </div>
-            <div class="m-b">
-              <a href class="pull-left w-40 m-r-sm"><img src="assets/images/a2.jpg" alt="..." class="w-full img-circle"></a>
-              <div class="clear">
-                <div class="p p-v-sm bg-warning inline r">
-                  Good!
-                </div>
-                <div class="text-muted-lt text-xs m-t-xs"><i class="fa fa-ok text-success"></i> 5 seconds ago</div>
-              </div>
-            </div>
-            <div class="m-b">
-              <a href class="pull-right w-40 m-l-sm"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
-              <div class="clear text-right">
-                <div class="p p-v-sm bg-info inline text-left r">
-                  Dlor soe isep..
-                </div>
-                <div class="text-muted-lt text-xs m-t-xs">Just now</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="p-h-md p-v">
-      <a class="pull-left w-32 m-r"><img src="assets/images/a3.jpg" class="w-full img-circle" alt="..."></a>
-      <form>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Say something">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">SEND</button>
-          </span>
-        </div>
-      </form>
-    </div>
-  </div>
-    </div>
-  </div>
-</div>
+<div id="container" class="" style="min-width: 450px; max-width: 640px; height: 400px; margin: 0 auto; padding-top: 100px"></div>
+</body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 <!-- Firebase js file -->
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 <script src="app/config.js"></script>
@@ -298,7 +505,6 @@
 <script src='app/users/login.js'></script>
 
 
-<script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/libs/jquery/waves/dist/waves.js"></script>
 <script src="assets/scripts/ui-load.js"></script>
@@ -309,5 +515,4 @@
 <script src="assets/scripts/ui-form.js"></script>
 <script src="assets/scripts/ui-waves.js"></script>
 <script src="assets/scripts/ui-client.js"></script>
-</body>
 </html>

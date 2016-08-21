@@ -1,13 +1,11 @@
-/**
-*  Module
-*
-* Description
-*/
 (function() {
 	'use strict';
-	angular.module('loginApp', [])
+	angular.module('addProyect', [])
+/*
+	.service('CallService', ['$q', function($q){
 
-
+	}])
+*/
 	.service('UserService', ['$q', function($q){
 		return {
 			signIn: signIn,
@@ -87,63 +85,34 @@
 		}
 	}])
 
+	.controller('ProyectController', ['$scope', 'UserService', ProyectController
+		]);
 
-	.controller('Userstroller', ['$rootScope', '$scope', 'UserService', Userstroller]);
-	function Userstroller($rootScope, $scope, UserService) {
-		$scope.name = '';
-		$scope.email = '';
-		$scope.pass = '';
-		$scope.test = null;
-		$scope.loginError = false;
-		$scope.regisSuccess = false;
-		$scope.regisError = false;
+	var db = firebase.database();
 
-		$scope.signIn = function() {
-			console.log('submit', $scope.email, $scope.pass);
-			UserService.signIn($scope.email, $scope.pass)
-			.catch(function(error) {
-				console.log('errpr', error);
-				$scope.loginError = true;
-			})
-			.then(function(response) {
-				var user = firebase.auth().currentUser;
-				localStorage.setItem('userId', user.uid);
-				window.location.href = 'http://localhost:8080/index.html';
-				$scope.loginError = false;
-			});
-		};
+	function ProyectController($scope, UserService) {
 
-		$scope.logout = function() {
-			UserService.logout()
-			.then(function(response) {
-				console.log(response);
-				localStorage.removeItem('userId');
-				window.location.href = 'http://localhost:8080/signin.html';
-			})
-			.catch(function(error) {
-				console.log(error);
-			});
-		};
+		$scope.addProyect = function(){
+			db.ref ('proyecto/').push({
+				nombre:							$scope.nombreProyecto,
+				descripcion: 					$scope.descripProyecto,
+				enlance_yt: 					"https://www.youtube.com/watch?v=-0gED3rn2Tc",
+				archivo_proyecto: 				"www.InserteLigaDelPDFoWordAqui.com",
+				lista_participantes: 			$scope.equipoPersonasProyecto,
+				lista_tags: 					{JkGrgnJhg4125: true, Bfdedtg123: true, gtdryrddGD: true},
+				estatus: 						"En proceso de FeedBack",
+				formulario: 					{lista_preguntas: "Seafsvyhft", validado: true},
+				idconvocatoria: 				"Gdeeafu124kaksak",
+				lista_criterios: 				{XDDtgahsbnk: {Navsddgubbj: true, calificacion: 30, total: 70}}
 
-		$scope.signUp = function() {
-			console.log('submit', $scope.email, $scope.pass, $scope.name);
-			UserService.signUp($scope.email, $scope.pass, $scope.name)
-			.catch(function(error) {
-				console.log('errpr', error);
-				$scope.regisSuccess = false;
-				$scope.regisError = true;
-			})
-			.then(function(response) {
-				console.log('res', response);
-				$scope.regisError = false;
-				$scope.regisSuccess = true;
 			});
 		};
 
 		angular.element(document).ready(function() {
 			UserService.getCurrentUser().then(function(res) {
 				res.email = firebase.auth().currentUser.email;
-				$rootScope.userData = res;
+				$scope.userData = res;
+				console.log('shjbdhj');
 			});
 		});
 	}
