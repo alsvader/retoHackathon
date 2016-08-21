@@ -12,6 +12,22 @@
   <link rel="stylesheet" href="assets/libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="assets/styles/font.css" type="text/css" />
   <link rel="stylesheet" href="assets/styles/app.css" type="text/css" />
+  <style type="text/css">
+    .delete {
+      margin-left: 5%;
+      margin-right: 1%;
+      margin-bottom: 1%;
+      margin-top: 1%;
+    }
+    #addQuestion {
+      margin-left: 5%;
+      margin-top: 2%;
+      margin-bottom: 3%;
+    }
+    button.btn-success {margin-right: 5%;}
+    textarea.form-control {width: 90%; margin: 0 auto;}
+    textarea#descr {margin-top: 4%;}
+  </style>
 </head>
 <body>
 <div class="app" id="contenedor">
@@ -158,51 +174,61 @@
   <div id="content" class="app-content" role="main">
     <div class="box">
           <!-- Content Navbar -->
-    <div class="navbar md-whiteframe-z1 no-radius blue">
-      <!-- Open side - Naviation on mobile -->
-      <a md-ink-ripple  data-toggle="modal" data-target="#aside" class="navbar-item pull-left visible-xs visible-sm"><i class="mdi-navigation-menu i-24"></i></a>
-      <!-- / -->
-      <!-- Page title - Bind to $state's title -->
-      <div class="navbar-item pull-left h4">Dashboard</div>
-      <!-- / -->
-      <!-- Common tools -->
-      <ul class="nav nav-sm navbar-tool pull-right">
-        <!--<li>
-          <a md-ink-ripple ui-toggle-class="show" target="#search">
-            <i class="mdi-action-search i-24"></i>
-          </a>
-        </li>-->
-        <li class="dropdown">
-          <a md-ink-ripple data-toggle="dropdown">
-            <i class="mdi-navigation-more-vert i-24"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-scale pull-right pull-up text-color">
-            <li><a href>Single-column view</a></li>
-            <li><a href>Sort by date</a></li>
-            <li><a href>Sort by name</a></li>
-            <li class="divider"></li>
-            <li><a href>Help &amp; feedback</a></li>
-            <li ng-app='loginApp' ng-controller='Userstroller' ng-click='logout()'><a href='#'>Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-      <div class="pull-right" ui-view="navbar@"></div>
-      <!-- / -->
-      <!--
-      <div id="search" class="pos-abt w-full h-full blue hide">
-        <div class="box">
-          <div class="box-col w-56 text-center">
-            <a md-ink-ripple class="navbar-item inline"  ui-toggle-class="show" target="#search"><i class="mdi-navigation-arrow-back i-24"></i></a>
+      <div class="navbar md-whiteframe-z1 no-radius blue">
+        <!-- Open side - Naviation on mobile -->
+        <a md-ink-ripple  data-toggle="modal" data-target="#aside" class="navbar-item pull-left visible-xs visible-sm"><i class="mdi-navigation-menu i-24"></i></a>
+        <!-- / -->
+        <!-- Page title - Bind to $state's title -->
+        <div class="navbar-item pull-left h4">Dashboard</div>
+        <!-- / -->
+        <!-- Common tools -->
+        <ul class="nav nav-sm navbar-tool pull-right">
+          <!--<li>
+            <a md-ink-ripple ui-toggle-class="show" target="#search">
+              <i class="mdi-action-search i-24"></i>
+            </a>
+          </li>-->
+          <li class="dropdown">
+            <a md-ink-ripple data-toggle="dropdown">
+              <i class="mdi-navigation-more-vert i-24"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-scale pull-right pull-up text-color">
+              <li><a href>Single-column view</a></li>
+              <li><a href>Sort by date</a></li>
+              <li><a href>Sort by name</a></li>
+              <li class="divider"></li>
+              <li><a href>Help &amp; feedback</a></li>
+              <li ng-app='loginApp' ng-controller='Userstroller' ng-click='logout()'><a href='#'>Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="pull-right" ui-view="navbar@"></div>
+        <!-- / -->
+        <!--
+        <div id="search" class="pos-abt w-full h-full blue hide">
+          <div class="box">
+            <div class="box-col w-56 text-center">
+              <a md-ink-ripple class="navbar-item inline"  ui-toggle-class="show" target="#search"><i class="mdi-navigation-arrow-back i-24"></i></a>
+            </div>
+            <div class="box-col v-m">
+              <input class="form-control input-lg no-bg no-border" placeholder="Search" ng-model="app.search.content">
+            </div>
+            <div class="box-col w-56 text-center">
+              <a md-ink-ripple class="navbar-item inline"><i class="mdi-av-mic i-24"></i></a>
+            </div>
           </div>
-          <div class="box-col v-m">
-            <input class="form-control input-lg no-bg no-border" placeholder="Search" ng-model="app.search.content">
-          </div>
-          <div class="box-col w-56 text-center">
-            <a md-ink-ripple class="navbar-item inline"><i class="mdi-av-mic i-24"></i></a>
-          </div>
-        </div>
-      </div>-->
-    </div>
+        </div>-->
+      </div>
+
+      <textarea id="descr" class="form-control" placeholder="Ingrese una pregunta"></textarea>
+      <button id="addQuestion" class="btn btn-warning">Agregar</button>
+
+      <form id="formQuestion">
+        <button type="button" id="btnSubmit" class="btn btn-success pull-right">Guardar</button>
+      </form>
+
+      <script src="questions.js"></script>
+
     </div>
   </div>
   <!-- / content -->

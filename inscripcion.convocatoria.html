@@ -208,7 +208,7 @@
                       </div>
                       <div class="col-md-6">
                         <b>Subir Video</b>
-                        <input type="file">
+                        <input type="file" disabled="disabled">
                         <br>
                       </div>
                       <div class="col-sm-6">
@@ -227,7 +227,7 @@
                     <div class="row">
                         <div class="col-sm-12 m-t-lg">
                           <div class="pull-right">
-                            <button type="submit" class="btn btn-success waves-effect">Enviar</button>
+                            <button type="button" id="btnSubmit" class="btn btn-success waves-effect">Enviar</button>
                           </div>
                         </div>
                     </div>
@@ -252,5 +252,33 @@
 <script src="assets/scripts/ui-form.js"></script>
 <script src="assets/scripts/ui-waves.js"></script>
 <script src="assets/scripts/ui-client.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCAmm5enJUX46v6aT4AGG0vuT5rwzkzoT0",
+    authDomain: "retoemprendedor-3d622.firebaseapp.com",
+    databaseURL: "https://retoemprendedor-3d622.firebaseio.com",
+    storageBucket: "retoemprendedor-3d622.appspot.com",
+  };
+  firebase.initializeApp(config);
+
+  // A post entry.
+  var proyecto = {
+    nombre_proyecto: 'Mi evento',
+    uid: uid,
+    body: body,
+    title: title,
+    starCount: 0,
+    authorPic: picture
+  };
+
+
+  // Get a reference to the database service
+  var id = firebase.database().ref().child('proyecto').push().key;
+
+</script>
+    
 </body>
 </html>
