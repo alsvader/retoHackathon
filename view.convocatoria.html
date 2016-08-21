@@ -18,8 +18,8 @@
     }
   </style>
 </head>
-<body>
-<div class="app">
+<body ng-app="convocatoriaOne">
+<div class="app" ng-controller="getController">
   <!--  folded  -->
   <aside id="aside" class="app-aside modal fade" role="menu">
     <div class="left">
@@ -216,14 +216,9 @@
                     <img src="assets/images/c5.jpg" class="w-full r-t" alt="Washed Out">
                   </div>
                   <div class="p">
-                    <h3 style="text-align:center">Nombre de convocatoria</h3>
+                    <h3 style="text-align:center">{{xNombre}}</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        {{xDescripcion}}
                     </p>
                   </div>
                   <div class="row">
@@ -247,52 +242,24 @@
                     <div class="col-sm-10 col-sm-offset-1">
                       <br>
                       <h3 class="text-center">Criterios</h3>
-                      <div class="list-group list-group-gap">
-                        <a href="" class="list-group-item md-whiteframe-z0">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                        </a>
-                        <a href="" class="list-group-item md-whiteframe-z0">
-                          Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugia
-                        </a>
-                        <a href="" class="list-group-item md-whiteframe-z0">
-                          Vestibulum ullamcorper sodales nisi nec condimentum
-                        </a>
-                        <a href="" class="list-group-item md-whiteframe-z0">
-                          Donec eleifend condimentum nisl eu consectetur. Integer eleifend
-                        </a>
-                        <a href="" class="list-group-item md-whiteframe-z0">
-                          Lectus arcu malesuada sem
+                      <ul class="list-group list-group-gap">
+                        <li href="" class="list-group-item md-whiteframe-z0"></li>
+                      </ul>
+                      <div ng-repeat="(key, value) in xCriterios" class="list-group list-group-gap">                  
+                        <a  href="" class="list-group-item md-whiteframe-z0">    
+                        {{key}}                   
                         </a>
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <h3 class="text-center">Jurado</h3>
                         <div class="row">
-                          <div class="col-md-4 text-center">
+                          <div  ng-repeat="(key, value) in xJurados" class="col-md-2 text-center">
                             <div class="rounded w-64 bg-white inline pos-rlt">
                               <img src="assets/images/a0.jpg" class="img-responsive rounded">
                             </div>
                             <a class="block m-t-sm">
-                              <span class="block font-bold">John Smith</span>
-                              john.smith@gmail.com
-                            </a>
-                          </div>
-                          <div class="col-md-4 text-center">
-                            <div class="rounded w-64 bg-white inline pos-rlt">
-                              <img src="assets/images/a0.jpg" class="img-responsive rounded">
-                            </div>
-                            <a class="block m-t-sm">
-                              <span class="block font-bold">John Smith</span>
-                              john.smith@gmail.com
-                            </a>
-                          </div>
-                          <div class="col-md-4 text-center">
-                            <div class="rounded w-64 bg-white inline pos-rlt">
-                              <img src="assets/images/a0.jpg" class="img-responsive rounded">
-                            </div>
-                            <a class="block m-t-sm">
-                              <span class="block font-bold">John Smith</span>
-                              john.smith@gmail.com
+                              <span class="block font-bold">{{key}}</span>                              
                             </a>
                           </div>
                         </div>
@@ -389,6 +356,15 @@
     </div>
   </div>-->
 </div>
+<!-- Firebase js file -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="app/config.js"></script>
+
+<!-- Aplication scripts -->
+<!-- <script src='vue.min.js'></script> -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
+<script src='app/convocatories/convocatoriesList.js'></script>
+
 <script src="assets/libs/jquery/jquery/dist/jquery.js"></script>
 <script src="assets/libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/libs/jquery/waves/dist/waves.js"></script>
